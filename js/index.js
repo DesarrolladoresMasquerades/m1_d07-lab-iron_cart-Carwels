@@ -16,15 +16,43 @@ function calculateAll() {
   // code in the following two lines is added just for testing purposes.
   // it runs when only iteration 1 is completed. at later point, it can be removed.
   // end of test
+const singleProduct = document.querySelector('.product')
+updateSubtotal(singleProduct);
+
+
+let result = 0;
+
+const totalPrice = document.querySelectorAll(".product").forEach((element) => { 
+  result += updateSubtotal(element)
+})
+
 
   // ITERATION 2
   //... your code goes here
+  /* ---- First solution idea -----------------
   const allProducts = Array.from(document.querySelectorAll('.product'));
   
-  allProducts.forEach((element) => { return updateSubtotal(element)})
+  allProducts.forEach((element) => { 
+    return updateSubtotal(element)})
+  -------------------------------------------- 
+    
+  ---------- Different solution --------------  
+  const allProducts = document.getElementsByClassName('product');
+
+  for (let i=0; i<allProducts.length; i++) {
+
+  updateSubtotal(allProducts[i]);
+
+  }
+  ----------------------------------------------
+  */
 
   // ITERATION 3
   //... your code goes here
+  let sumResults = document.querySelector("#total-value span");
+  
+  sumResults.innerText = result;
+
 }
 
 // ITERATION 4
